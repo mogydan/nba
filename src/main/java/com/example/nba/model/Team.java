@@ -15,12 +15,6 @@ import javax.persistence.Id;
 @Accessors(chain = true)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Team {
-/*
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID", updatable = false, nullable = false)
-    private long id;*/
-
 
     @Id
     @Column(name = "TEAM_ID", updatable = false, nullable = false)

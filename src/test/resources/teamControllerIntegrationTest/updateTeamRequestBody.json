@@ -1,0 +1,13 @@
+{
+  "team_id": "team1",
+  "abbreviation": "Newabr1",
+  "active": false,
+  "first_name": "Newfname1",
+  "last_name": "Newlname1",
+  "conference": "Newconf1",
+  "division": "Newdev1",
+  "site_name": "Newsite1",
+  "city": "Newcity1",
+  "state": "Newstate1",
+  "full_name": "Newfname1"
+}

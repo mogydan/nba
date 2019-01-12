@@ -1,0 +1,28 @@
+[
+  {
+    "team_id": "team1",
+    "abbreviation": "abr1",
+    "active": true,
+    "first_name": "fname1",
+    "last_name": "lname1",
+    "conference": "conf1",
+    "division": "dev1",
+    "site_name": "site1",
+    "city": "city1",
+    "state": "state1",
+    "full_name": "fname1"
+  },
+  {
+    "team_id": "team2",
+    "abbreviation": "abr2",
+    "active": true,
+    "first_name": "fname2",
+    "last_name": "lname2",
+    "conference": "conf2",
+    "division": "dev2",
+    "site_name": "site2",
+    "city": "city2",
+    "state": "state2",
+    "full_name": "fname2"
+  }
+]

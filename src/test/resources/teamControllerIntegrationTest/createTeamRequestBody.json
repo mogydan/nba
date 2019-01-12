@@ -1,0 +1,13 @@
+{
+  "team_id": "team3",
+  "abbreviation": "abr3",
+  "active": true,
+  "first_name": "fname3",
+  "last_name": "lname3",
+  "conference": "conf3",
+  "division": "dev3",
+  "site_name": "site3",
+  "city": "city3",
+  "state": "state3",
+  "full_name": "fname3"
+}

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <TEAM TEAM_ID="team1" ABBREVIATION="Newabr1" ACTIVE="N" FIRST_NAME="Newfname1" LAST_NAME="Newlname1" CONFERENCE="Newconf1" DIVISION="Newdev1" SITE_NAME="Newsite1" CITY="Newcity1" STATE="Newstate1" FULL_NAME="Newfname1" />
+    <TEAM TEAM_ID="team2" ABBREVIATION="abr2" ACTIVE="Y" FIRST_NAME="fname2" LAST_NAME="lname2" CONFERENCE="conf2" DIVISION="dev2" SITE_NAME="site2" CITY="city2" STATE="state2" FULL_NAME="fname2" />
+</dataset>
