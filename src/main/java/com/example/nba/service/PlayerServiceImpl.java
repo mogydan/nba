@@ -40,6 +40,11 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
+    public void setTeam(long playerId, String teamId) {
+        playerRepository.setTeam(playerId, teamId);
+    }
+
+    @Override
     public void deletePlayer(long playerId) {
         playerRepository.delete(getPlayer(playerId));
     }

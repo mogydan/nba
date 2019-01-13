@@ -48,6 +48,11 @@ public class PlayerController {
         playerService.updatePlayer(playerId, updates);
     }
 
+    @PatchMapping
+    public void setTeam(@RequestParam long playerId, @RequestParam String teamId) {
+        playerService.setTeam(playerId, teamId);
+    }
+
     @DeleteMapping("/{playerId}")
     public void deletePlayer(@PathVariable long playerId) {
         playerService.deletePlayer(playerId);

@@ -14,5 +14,7 @@ public interface PlayerService {
 
     void updatePlayer(long playerId, Player updates);
 
+    void setTeam(long playerId, String teamId);
+
     void deletePlayer(long playerId);
 }
