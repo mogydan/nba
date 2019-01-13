@@ -43,14 +43,9 @@ public class PlayerController {
         return playerService.getAllPlayers();
     }
 
-    @PutMapping("/{playerId}")
-    public void updatePlayer(@PathVariable long playerId, @RequestBody Player updates) {
-        playerService.updatePlayer(playerId, updates);
-    }
-
     @PatchMapping
     public void setTeam(@RequestParam long playerId, @RequestParam String teamId) {
-        playerService.setTeam(playerId, teamId);
+        playerService.setTeam(playerId, teamService.getTeam(teamId).getTeamId());
     }
 
     @DeleteMapping("/{playerId}")

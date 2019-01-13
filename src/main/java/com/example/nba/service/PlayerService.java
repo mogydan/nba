@@ -12,8 +12,6 @@ public interface PlayerService {
 
     List<Player> getAllPlayers();
 
-    void updatePlayer(long playerId, Player updates);
-
     void setTeam(long playerId, String teamId);
 
     void deletePlayer(long playerId);

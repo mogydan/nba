@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <TEAM TEAM_ID="team1" ABBREVIATION="abr1" ACTIVE="Y" FIRST_NAME="fname1" LAST_NAME="lname1" CONFERENCE="conf1" DIVISION="dev1" SITE_NAME="site1" CITY="city1" STATE="state1" FULL_NAME="fname1" />
+    <TEAM TEAM_ID="team2" ABBREVIATION="abr2" ACTIVE="Y" FIRST_NAME="fname2" LAST_NAME="lname2" CONFERENCE="conf2" DIVISION="dev2" SITE_NAME="site2" CITY="city2" STATE="state2" FULL_NAME="fname2" />
+
+    <PLAYER ID="111" FULL_NAME="Player1" HEIGHT="201" PHONE="111" TEAM_ID="team2"/>
+    <PLAYER ID="222" FULL_NAME="Player2" HEIGHT="202" PHONE="222" TEAM_ID="team1"/>
+    <PLAYER ID="333" FULL_NAME="Player3" HEIGHT="203" PHONE="333" TEAM_ID="team2"/>
+</dataset>

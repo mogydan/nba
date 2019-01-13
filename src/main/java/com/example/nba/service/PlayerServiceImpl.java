@@ -31,17 +31,8 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
-    public void updatePlayer(long playerId, Player updates) {
-        Player player = getPlayer(playerId)
-                .setFullName(updates.getFullName())
-                .setPhone(updates.getPhone())
-                .setHeight(updates.getHeight());
-        playerRepository.save(player);
-    }
-
-    @Override
     public void setTeam(long playerId, String teamId) {
-        playerRepository.setTeam(playerId, teamId);
+        playerRepository.setTeam(getPlayer(playerId).getId(), teamId);
     }
 
     @Override
