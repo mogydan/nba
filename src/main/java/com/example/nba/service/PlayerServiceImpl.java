@@ -20,14 +20,9 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
-    public void addPlayers(List<Player> players) {
-        playerRepository.saveAll(players);
-    }
-
-    @Override
     public Player getPlayer(long playerId) {
         return playerRepository.findById(playerId)
-                .orElseThrow(() -> new ResourceNotFoundException("Pl with id = {0} was not found", playerId));
+                .orElseThrow(() -> new ResourceNotFoundException("Player with id = {0} was not found", playerId));
     }
 
     @Override

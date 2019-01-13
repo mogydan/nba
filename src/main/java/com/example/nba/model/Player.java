@@ -1,17 +1,17 @@
 package com.example.nba.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Data
 @Accessors(chain = true)
-@JsonIgnoreProperties(ignoreUnknown = true)
+@EqualsAndHashCode(exclude = "team")
 public class Player {
 
     @Id
@@ -21,21 +21,27 @@ public class Player {
     private long id;
 
     @Column(name = "FULL_NAME")
-    @NotEmpty
     @JsonProperty("full_name")
     private String fullName;
 
     @Column(name = "PHONE")
-    @NotEmpty
     @JsonProperty("phone")
     private String phone;
 
     @Column(name = "HEIGHT")
-    @NotEmpty
     @JsonProperty("height")
     private int height;
 
+    @JsonProperty("team_id")
+    @Transient
+    private String teamId;
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "TEAM_ID", nullable = false, foreignKey = @ForeignKey(name = "TEAM_FK"))
+    @JoinColumn(name = "team_id", nullable = false, foreignKey = @ForeignKey(name = "TEAM_FK"))
+    @JsonIgnore
     private Team team;
+
+    public String getTeamId() {
+        return team.getTeamId();
+    }
 }

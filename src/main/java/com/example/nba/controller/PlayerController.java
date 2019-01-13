@@ -1,7 +1,9 @@
 package com.example.nba.controller;
 
 import com.example.nba.model.Player;
+import com.example.nba.model.Team;
 import com.example.nba.service.PlayerService;
+import com.example.nba.service.TeamService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,15 +14,23 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PlayerController {
     private final PlayerService playerService;
+    private final TeamService teamService;
 
     @PostMapping
-    public Player createPlayer(@RequestBody Player player) {
-        return playerService.createPlayer(player);
-    }
-
-    @PostMapping("/addAll")
-    public void addPlayers(@RequestBody List<Player> players) {
-        playerService.addPlayers(players);
+    public Player createPlayer(
+            @RequestParam String fullName,
+            @RequestParam int height,
+            @RequestParam String phone,
+            @RequestParam String teamId
+    ) {
+        Team team = teamService.getTeam(teamId);
+        return playerService.createPlayer(
+                new Player()
+                        .setFullName(fullName)
+                        .setHeight(height)
+                        .setPhone(phone)
+                        .setTeam(team)
+        );
     }
 
     @GetMapping("/{playerId}")

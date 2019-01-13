@@ -16,7 +16,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.web.util.NestedServletException;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -74,7 +73,7 @@ public class TeamControllerTest {
                         .json(Utils.resourceAsString("teamControllerIntegrationTest/getTeamExpected.json")));
     }
 
-    @Test(expected = NestedServletException.class)
+    @Test
     @SneakyThrows
     @DatabaseSetup("/teamControllerIntegrationTest/initialDatabase.xml")
     @ExpectedDatabase(value = "/teamControllerIntegrationTest/initialDatabase.xml", table = "TEAM")
@@ -118,7 +117,7 @@ public class TeamControllerTest {
                 .andExpect(status().isOk());
     }
 
-    @Test(expected = NestedServletException.class)
+    @Test
     @SneakyThrows
     @DatabaseSetup("/teamControllerIntegrationTest/initialDatabase.xml")
     @ExpectedDatabase(value = "/teamControllerIntegrationTest/initialDatabase.xml", table = "TEAM")

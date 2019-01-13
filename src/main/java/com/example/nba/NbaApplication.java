@@ -17,27 +17,33 @@ import java.util.List;
 @SpringBootApplication
 public class NbaApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(NbaApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(NbaApplication.class, args);
+    }
 
-	@Bean
-	public RestTemplate restTemplate(RestTemplateBuilder builder) {
-		return builder.build();
-	}
+    @Bean
+    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+        return builder.build();
+    }
 
-	@Bean
-	public CommandLineRunner run(RestTemplate restTemplate, TeamService teamService) {
-		return args -> {
-			ResponseEntity<List<Team>> response = restTemplate.exchange(
-					"https://erikberg.com/mlb/teams.json",
-					HttpMethod.GET,
-					null,
-					new ParameterizedTypeReference<List<Team>>(){});
-			List<Team> teams = response.getBody();
-			teamService.addTeams(teams);
-		};
-	}
+    @Bean
+    public CommandLineRunner run(RestTemplate restTemplate, TeamService teamService) {
+        return args -> {
+            ResponseEntity<List<Team>> response = restTemplate.exchange(
+                    "https://erikberg.com/mlb/teams.json",
+                    HttpMethod.GET,
+                    null,
+                    new ParameterizedTypeReference<List<Team>>() {
+                    }
+            );
+            List<Team> teams = response.getBody();
+
+            if ((teams != null) && (!teams.isEmpty())) {
+                teamService.addTeams(teams);
+                teamService.createTeam(new Team().setTeamId("free-transfer"));
+            }
+        };
+    }
 
 }
 

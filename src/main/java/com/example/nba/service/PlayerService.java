@@ -8,8 +8,6 @@ public interface PlayerService {
 
     Player createPlayer(Player newPlayer);
 
-    void addPlayers(List<Player> players);
-
     Player getPlayer(long playerId);
 
     List<Player> getAllPlayers();
