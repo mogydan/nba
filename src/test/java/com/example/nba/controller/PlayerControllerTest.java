@@ -88,6 +88,29 @@ public class PlayerControllerTest {
     @Test
     @SneakyThrows
     @DatabaseSetup("/playerControllerIntegrationTest/initialDatabase.xml")
+    @ExpectedDatabase(value = "/playerControllerIntegrationTest/initialDatabase.xml", table = "PLAYER")
+    public void getPlayersByTeam() {
+        mvc.perform(get("/players/byTeam/team1"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .andExpect(content()
+                        .json(Utils.resourceAsString("playerControllerIntegrationTest/getPlayersByTeamExpected.json")));
+    }
+
+    @Test
+    @SneakyThrows
+    @DatabaseSetup("/playerControllerIntegrationTest/initialDatabase.xml")
+    @ExpectedDatabase(value = "/playerControllerIntegrationTest/initialDatabase.xml", table = "PLAYER")
+    public void getPlayersByTeamNotFoundTeam() {
+        mvc.perform(get("/players/byTeam/team255"))
+                .andExpect(status().isNotFound())
+                .andExpect(content().string("Team with id = team255 was not found"));
+
+    }
+
+    @Test
+    @SneakyThrows
+    @DatabaseSetup("/playerControllerIntegrationTest/initialDatabase.xml")
     @ExpectedDatabase(value = "/playerControllerIntegrationTest/setTeamExpected.xml", table = "PLAYER")
     public void setTeam() {
         mvc.perform(

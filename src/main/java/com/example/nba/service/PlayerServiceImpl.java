@@ -2,6 +2,7 @@ package com.example.nba.service;
 
 import com.example.nba.exception.ResourceNotFoundException;
 import com.example.nba.model.Player;
+import com.example.nba.model.Team;
 import com.example.nba.repository.PlayerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -26,8 +27,13 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
+    public List<Player> getPlayersByTeam(Team team) {
+        return playerRepository.findAllByTeam(team);
+    }
+
+    @Override
     public List<Player> getAllPlayers() {
-        return playerRepository.findAll();
+        return playerRepository.findAllByOrderByTeamAsc();
     }
 
     @Override

@@ -1,0 +1,16 @@
+[
+  {
+    "id": 111,
+    "full_name": "Player1",
+    "phone": "111",
+    "height": 201,
+    "team_id": "team1"
+  },
+  {
+    "id": 222,
+    "full_name": "Player2",
+    "phone": "222",
+    "height": 202,
+    "team_id": "team1"
+  }
+]

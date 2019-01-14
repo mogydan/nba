@@ -43,6 +43,11 @@ public class PlayerController {
         return playerService.getAllPlayers();
     }
 
+    @GetMapping("/byTeam/{teamId}")
+    public List<Player> getPlayersByTeam(@PathVariable String teamId) {
+        return playerService.getPlayersByTeam(teamService.getTeam(teamId));
+    }
+
     @PatchMapping
     public void setTeam(@RequestParam long playerId, @RequestParam String teamId) {
         playerService.setTeam(playerId, teamService.getTeam(teamId).getTeamId());
